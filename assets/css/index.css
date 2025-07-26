@@ -1,0 +1,52 @@
+/* ----------  default: laptop / desktop  ---------- */
+.hero img:first-of-type {          /* hero-bg.png  */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero img:last-of-type {           /* hero_new2.png */
+    display: none;
+  }
+  
+  /* ----------  mobile (≤ 767 px)  ---------- */
+  @media (max-width: 767px) {
+    .hero img:first-of-type {        /* hide desktop pic */
+      display: none;
+    }
+  
+    .hero img:last-of-type {         /* show mobile pic */
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+
+  /* Mobile only - center the container */
+@media (max-width: 767px) {
+    .container.aos-init.aos-animate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+      padding: 1rem;
+      min-height: 100vh; /* Optional: if you want full viewport height centering */
+    }
+    
+    /* Center all child elements */
+    .container.aos-init.aos-animate * {
+      text-align: center;
+    }
+    
+    /* Center social links specifically */
+    .container.aos-init.aos-animate .social-links {
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
+  
