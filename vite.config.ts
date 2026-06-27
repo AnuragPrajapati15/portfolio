@@ -6,8 +6,21 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from "@tailwindcss/vite";
+import path from "path";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [tailwindcss(), react()],
   base: '/portfolio/',
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  css: {
+    transformer: "postcss",
+  },
+  build: {
+    cssMinify: "esbuild",
+  }
 })
