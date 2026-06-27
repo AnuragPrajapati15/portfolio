@@ -12,7 +12,7 @@ export default defineConfig({
         tailwindcss(), // Required for Tailwind v4 CSS processing
         react(),
     ],
-    base: "/portfolio_new/", // ← Change this to your actual repo name if different
+    base: "/portfolio/",
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src"),

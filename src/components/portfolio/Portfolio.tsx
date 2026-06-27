@@ -19,7 +19,7 @@ const NAV = [
   ["Projects", "projects"], ["Services", "services"], ["Clients", "clients"], ["Testimonials", "testimonials"], ["Contact", "contact"],
 ] as const;
 
-const ROLES = ["Python Full Stack Developer", "AI & RAG Specialist", "Backend Architect", "Cloud & DevOps Expert"];
+const ROLES = ["Sr. Software Developer", "Python Full Stack Developer", "AI & RAG Specialist", "Backend Architect"];
 
 const STATS = [
   { label: "Years Experience", value: 3, suffix: "+" },
@@ -31,27 +31,43 @@ const STATS = [
 const SKILL_GROUPS = [
   { icon: Server, title: "Backend", skills: [["Python", 95], ["Django / DRF", 95], ["FastAPI", 90], ["Flask", 85], ["Celery / Redis", 88]] },
   { icon: Code2, title: "Frontend", skills: [["React.js", 85], ["JavaScript", 90], ["HTML5 / CSS3", 95], ["Bootstrap", 90]] },
-  { icon: Bot, title: "Generative AI", skills: [["RAG Systems", 85], ["Vector DBs", 80], ["Prompt Engineering", 90], ["OpenAI API", 92]] },
+  { icon: Bot, title: "Generative AI", skills: [["RAG Systems", 90], ["Vector DBs", 85], ["Prompt Engineering", 92], ["OpenAI API", 95]] },
   { icon: Database, title: "Databases", skills: [["PostgreSQL", 90], ["MySQL / SQLite", 85], ["MongoDB", 80]] },
-  { icon: Cloud, title: "Cloud & DevOps", skills: [["AWS (EC2, ECS, S3)", 85], ["Docker", 88], ["Nginx / Gunicorn", 85], ["Git / GitHub", 95]] },
-  { icon: Wrench, title: "Others", skills: [["RESTful APIs", 95], ["Microservices", 85], ["WebSockets", 80], ["System Design", 82]] },
+  { icon: Cloud, title: "Cloud & DevOps", skills: [["AWS (EC2, ECS, S3)", 88], ["Docker", 90], ["Nginx / Gunicorn", 85], ["Git / GitHub", 95]] },
+  { icon: Wrench, title: "Libraries & Tools", skills: [["Boto3 / Pandas", 85], ["NumPy", 80], ["Postman", 90], ["Linux / SSH", 85]] },
 ] as const;
 
 const EXPERIENCE = [
   {
-    role: "Software Developer", company: "Cyber Infrastructure (P) Ltd", time: "Feb 2023 - Present",
-    points: ["Developing scalable backend services using Python, Django, DRF, and FastAPI.", "Implementing microservices architectures and RESTful APIs for web/mobile apps.", "Building secure auth systems with JWT, OAuth2, and RBAC.", "Managing async task processing with Celery and Redis.", "Optimizing PostgreSQL schemas and queries for high performance."],
+    role: "Sr. Software Developer", company: "Yash Technologies Pvt Ltd", time: "May 2026 - Present",
+    points: [
+      "Working as a Sr. Software Developer with a focus on Python Full Stack development.",
+      "Designing and implementing scalable backend services and modern digital products.",
+      "Specializing in AI integrations, RAG-based systems, and cloud-native architectures.",
+      "Collaborating with cross-functional teams to deliver high-quality software solutions."
+    ],
+  },
+  {
+    role: "Software Developer", company: "Cyber Infrastructure (P) Ltd", time: "Feb 2023 - April 2026",
+    points: [
+      "Designed, developed and maintained scalable backend services using Python, Django, DRF, and FastAPI.",
+      "Built secure authentication and authorization systems using JWT, OAuth2, and role-based access control (RBAC).",
+      "Executed asynchronous task processing using Celery and Redis to handle background jobs and notifications.",
+      "Optimized PostgreSQL database schemas and improved query performance through indexing.",
+      "Integrated multiple third-party APIs including trading platforms, payment gateways, and OpenAI APIs.",
+      "Collaborated with cross-functional teams to deliver production-ready features."
+    ],
   },
   {
     role: "Bachelor of Technology (CSE)", company: "RGPV, Bhopal", time: "2019 — 2023",
-    points: ["Specialized in Computer Science and Engineering.", "Focused on Software Development, Data Structures, and Algorithms.", "Built foundations in Python and web technologies."],
+    points: ["Specialized in Computer Science and Engineering.", "Rajiv Gandhi Proudyogiki Vishwavidyalaya.", "Focused on Software Development, Data Structures, and Algorithms."],
   },
 ];
 
 const PROJECTS = [
-  { title: "Hands-Free Trading", desc: "Algorithmic trading platform with microservices, secure authentication and real-time execution.", tech: ["Django", "React", "AWS", "Kafka", "Docker"] },
-  { title: "United Instantly", desc: "Real-time human connection platform with instant matching and location tracking.", tech: ["Django", "WebSockets", "AWS", "PostGIS", "Redis"] },
-  { title: "Starlight (AI Quiz)", desc: "RAG-based AI chatbot using OpenAI APIs, embeddings, and vector search for quiz management.", tech: ["Python", "OpenAI", "RAG", "PostgreSQL", "Docker"] },
+  { title: "Hands-Free Trading", desc: "Algorithmic trading platform with microservices, secure authentication and real-time execution.", tech: ["Django", "React", "AWS", "Kafka", "Docker", "PostgreSQL", "Redis"] },
+  { title: "United Instantly", desc: "Real-time human connection platform with instant matching and location tracking.", tech: ["Django", "WebSockets", "AWS", "PostGIS", "Redis", "Python"] },
+  { title: "Starlight (AI Quiz)", desc: "RAG-based AI chatbot using OpenAI APIs, embeddings, and vector search for quiz management.", tech: ["Python", "OpenAI", "RAG", "PostgreSQL", "Docker", "Bootstrap"] },
 ];
 
 const SERVICES = [
@@ -342,6 +358,8 @@ function About() {
     ["Databases", ["PostgreSQL", "MySQL", "MongoDB", "Redis"]],
     ["Data Engineering", ["PySpark", "Databricks", "Airflow", "ETL"]],
     ["Other", ["REST", "GraphQL", "Microservices", "System Design", "GIS", "AI"]],
+    ["Languages", ["English", "Hindi"]],
+    ["Interests", ["Technology Trends", "Cricket"]],
   ] as const;
   return (
     <Section id="about" eyebrow="About Me" title={<>The <span className="text-gradient">Engineer</span> Behind The Code</>}>
@@ -395,7 +413,7 @@ function SkillBar({ name, value, delay }: { name: string; value: number; delay: 
   }, []);
   return (
     <div ref={ref}>
-      <div className="mb-1 flex justify-between text-sm">
+      <div className="mb-1 flex justify-between text-sm sm:mr-0 mr-8">
         <span className="text-foreground">{name}</span>
         <span className="font-mono text-primary">{value}%</span>
       </div>
@@ -485,7 +503,7 @@ function Projects() {
                   <span key={t} className="rounded-md bg-primary/10 px-2 py-1 font-mono text-[11px] text-primary">{t}</span>
                 ))}
               </div>
-              <div className="mt-5 flex gap-2">
+              <div className="mt-5 flex gap-2 sm:mr-0 mr-8">
                 <Button size="sm" className="flex-1 rounded-full bg-gradient-to-r from-primary to-[color:var(--primary-glow)] text-primary-foreground hover:opacity-90">
                   <ExternalLink className="mr-1.5 h-3.5 w-3.5" /> Live
                 </Button>
@@ -695,7 +713,7 @@ function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-primary to-[color:var(--primary-glow)] text-primary-foreground shadow-glow transition-all ${show ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+      className={`fixed bottom-4 right-4 z-40 grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-primary to-[color:var(--primary-glow)] text-primary-foreground shadow-glow transition-all sm:bottom-6 sm:right-6 sm:h-12 sm:w-12 ${show ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
       aria-label="Back to top"
     >
       <ArrowUp className="h-5 w-5" />
