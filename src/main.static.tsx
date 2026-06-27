@@ -13,6 +13,7 @@ const router = createRouter({
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    basepath: "/portfolio",
 });
 
 declare module "@tanstack/react-router" {
